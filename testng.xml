@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="GoogleTests" verbose="1" >
+  <test name="GoogleTests">
+    <classes>
+       <class name="tests.GoogleTests"/>
+    </classes>
+  </test>
+</suite>

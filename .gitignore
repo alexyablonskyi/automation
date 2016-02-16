@@ -1,0 +1,12 @@
+**/target/
+**/test-output/
+/messages/
+**/log/
+/.idea/
+*.iml
+**/dependency-reduced-pom.xml
+*.prefs
+*.project
+*.settings
+*.classpath
+
