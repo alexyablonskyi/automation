@@ -16,7 +16,7 @@ public class Tests extends BaseClass {
 	3. Check if you First and Last Name appeared in right corner
 
 */
-	@Test(enabled= false, priority=0, description= "Go to booking website and login into the system")
+	@Test(enabled=false, priority=0, description= "Go to booking website and login into the system")
 	public void loginIntoBookingSite() throws Exception{
 		HomePage homePage = new HomePage(driver);
 		homePage.clickSignInButton();
@@ -24,7 +24,7 @@ public class Tests extends BaseClass {
 		homePage.loginIntoTheSystem();
 		waitUntilAjaxRequestCompletes();
 		
-		Assert.assertEquals(homePage.getFirstAndLastNameAfterLogin(), Global.fullNameBookingAccount);
+		Assert.assertEquals(homePage.getFullNameAfterLogin(), Global.fullNameBookingAccount);
 	}
 
 	/*
@@ -34,7 +34,7 @@ public class Tests extends BaseClass {
 	3. Click Search
 	4. Check if Montenegro is in the list of popular hotels
 */
-	@Test(enabled= true, priority=1, description= "if Montenegro is in the list of popular hotels")
+	@Test(enabled=true, priority=1, description= "if Montenegro is in the list of popular hotels")
 	public void verifyMontenegroInListOfPopularHotels() throws Exception{
 		
 	}

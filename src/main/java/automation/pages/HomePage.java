@@ -66,10 +66,10 @@ public class HomePage {
 	
 	
 	/*
-	 * Return First and Last name of user after login
+	 * Return Full name of user after login
 	 */
 	
-	public String getFirstAndLastNameAfterLogin(){
+	public String getFullNameAfterLogin(){
 		String fullName = firstName.getText() + " " + lastName.getText();
 		return fullName;
 	}
