@@ -14,21 +14,6 @@ public class SearchResultPage {
 	}
 	
 	/*
-	 * Found out if there is available room in hotel
-	 */
-	@FindBy(xpath=".//*[@data-row-number='1']//span[@class='b-button__text']")
-	private WebElement selectYourRoomButton;	
-	
-	/**
-	 * Get xpath of Select Your room Button
-	 * @return xpath
-	 */	
-	public String getSelectYourRoomButtonXpath(){		
-		return ".//*[@data-row-number='1']//span[@class='b-button__text']";
-		
-	}
-	
-	/*
 	 * Message about all room are sold for selected date
 	 */
 	@FindBy(xpath=".//*[@id='hotellist_inner']//p[@class='simple_av_calendar_no_av']")
@@ -40,6 +25,7 @@ public class SearchResultPage {
 	public String getMessageWhenRoomAreSold(){
 		return hotelRoomAreSoldSection.getText();
 	}
+	
 	/*
 	 * Open hotel page
 	 */

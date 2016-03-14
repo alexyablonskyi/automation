@@ -84,7 +84,7 @@ public class Tests extends BaseClass {
 	}
 
 
-	@Test(enabled=true, priority=3, description= "Verify if Hotel does not have free rooms on appropriete date")
+	@Test(enabled=true, priority=3, description= "Verify if Hotel has free rooms on appropriete date")
 	public void verifyIfHotemIsAvailableOnDate() throws Exception{	
 		homePage.setDateOfBookingHotel("25", "2016-6", "26", "2016-6");
 		homePage.searchHotel(Global.hotelName);
