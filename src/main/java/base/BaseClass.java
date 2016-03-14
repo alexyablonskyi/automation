@@ -153,7 +153,6 @@ public class BaseClass {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
     }
 	
 	/**
@@ -176,8 +175,7 @@ public class BaseClass {
      * @param connect
      */
     public void deleteAllRowsFromTable(Connection connect) throws SQLException{
-    	String query = "delete from cities";
-    	
+    	String query = "delete from cities";    	
     	pstmt = connect.prepareStatement(query);
     	pstmt.executeUpdate();    	
     }
