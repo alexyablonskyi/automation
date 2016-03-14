@@ -1,9 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
   
-<suite name="GoogleTests" verbose="1" >
-  <test name="GoogleTests">
-    <classes>
-       <class name="tests.GoogleTests"/>
+<suite name="Automation Tests without db" verbose="1" >
+  <test name="Test 1">
+    <classes>   
+       <class name="automationTests.Tests"/>		      
+		    <methods>
+	       		<include name="loginIntoBookingSite"/>
+	       		<include name="findAccomodationInLviv"/>
+	       		<include name="verifyIfHotemIsAvailableOnDate"/>
+	       		<include name="findHotemAndCheckWiFiAndParkingCosts"/> 
+	       	</methods>	      
     </classes>
   </test>
 </suite>

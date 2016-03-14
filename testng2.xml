@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="Automation Tests with db" verbose="1" >
+  <test name="Test 1">
+    <classes>   
+       <class name="automationTests.Tests"/>		      
+		    <methods>
+	       		<include name="findAllPopularCitiesOnSite"/>
+	       	</methods>	      
+    </classes>
+  </test>
+</suite>
