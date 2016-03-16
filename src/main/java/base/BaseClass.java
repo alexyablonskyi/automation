@@ -237,21 +237,6 @@ public class BaseClass {
     	}
     }
     
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }	
 
 
