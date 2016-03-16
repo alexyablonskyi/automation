@@ -23,32 +23,11 @@ import values.*;
 
 public class Tests extends BaseClass {
 	
-	@BeforeMethod
-	public void driverSetup(){
- 		driver = new FirefoxDriver();
- 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
- 		driver.manage().window().maximize();
- 		driver.get(Global.baseURL);
- 		
- 		homePage = new HomePage(driver);
-		accountPage = new AccountPage(driver);
-		destinationFinderPage = new DestionationFinderPage(driver);
-		searchResult = new SearchResultPage(driver);
-		hotelPage = new HotelPage(driver);
-		softAssert = new SoftAssert();
- 	}
-
-	@AfterMethod
-	public void tearDown() throws SQLException{
-		if (connect != null) {
-			connect.close();
-		}
-		driver.quit();	
-	} 
-	
-	
 	@Test(enabled=true, priority=0, description= "Go to booking website and login into the system")
 	public void loginIntoBookingSite() throws Exception{		
+		HomePage homePage = new HomePage(driver);
+		AccountPage accountPage = new AccountPage(driver);
+			
 		homePage.clickSignInButton();
 		waitForPageLoad(driver);
 		homePage.loginIntoTheSystem(Global.bookingEmail, Global.bookingpassword);	
@@ -60,6 +39,10 @@ public class Tests extends BaseClass {
 	
 	@Test(enabled=true, priority=1, description= "Find accomodations in Lviv")
 	public void findAccomodationInLviv() throws Exception{		
+		HomePage homePage = new HomePage(driver);
+		AccountPage accountPage = new AccountPage(driver);
+		DestionationFinderPage destinationFinderPage = new DestionationFinderPage(driver);
+		
 		homePage.clickSignInButton();
 		waitForPageLoad(driver);
 		homePage.loginIntoTheSystem(Global.bookingEmail, Global.bookingpassword);		
@@ -75,6 +58,8 @@ public class Tests extends BaseClass {
 
 	@Test(enabled=true, priority=2, description= "Find all popular cities on website and write them into db, compare result")
 	public void findAllPopularCitiesOnSite() throws Exception{
+		HomePage homePage = new HomePage(driver);
+		
 		ArrayList<String> listOfCitiesOnSite = homePage.getNamesOfCities();		
 		Connection connect = createDataBaseConnection();
 		deleteAllRowsFromTable(connect);
@@ -86,6 +71,9 @@ public class Tests extends BaseClass {
 
 	@Test(enabled=true, priority=3, description= "Verify if Hotel has free rooms on appropriete date")
 	public void verifyIfHotemIsAvailableOnDate() throws Exception{	
+		HomePage homePage = new HomePage(driver);
+		SearchResultPage searchResult = new SearchResultPage(driver);
+		
 		homePage.setDateOfBookingHotel("25", "2016-6", "26", "2016-6");
 		homePage.searchHotel(Global.hotelName);
 		
@@ -95,6 +83,11 @@ public class Tests extends BaseClass {
 	
 	@Test(enabled=true, priority=4, description= "Find hotel and check if there are free WiFi and parking")
 	public void findHotemAndCheckWiFiAndParkingCosts() throws Exception{
+		HomePage homePage = new HomePage(driver);
+		SearchResultPage searchResult = new SearchResultPage(driver);
+		HotelPage hotelPage = new HotelPage(driver);
+		SoftAssert softAssert = new SoftAssert();
+		
 		homePage.searchHotel(Global.hotelName);	
 		searchResult.openHotelPage();
 		switchBeetweanWindows();

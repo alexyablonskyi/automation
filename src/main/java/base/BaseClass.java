@@ -44,15 +44,23 @@ import values.Global;
 
 
 public class BaseClass {
-
 	protected static WebDriver driver;
-	protected HomePage homePage;
-	protected AccountPage accountPage;
-	protected DestionationFinderPage destinationFinderPage;
-	protected SearchResultPage searchResult;
-	protected HotelPage hotelPage;
-	protected SoftAssert softAssert;
-
+	
+	@BeforeMethod
+	public void driverSetup(){
+ 		driver = new FirefoxDriver();
+ 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+ 		driver.manage().window().maximize();
+ 		driver.get(Global.baseURL);
+	}
+	
+	@AfterMethod
+	public void tearDown() throws SQLException{
+		if (connect != null) {
+			connect.close();
+		}
+		driver.quit();	
+	} 
 	
 	/**
 	 * Wait for Page is loaded (All JavaScript completed)
@@ -213,8 +221,7 @@ public class BaseClass {
     	return count;
     }
     
-    
-    
+        
     /**
      * Verify if element is present
      * @param xpath of element
